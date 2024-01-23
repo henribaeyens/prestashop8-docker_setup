@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Cleaning up cache..."
+
+rm -Rf var/cache/*    

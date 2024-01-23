@@ -5,44 +5,6 @@ DIR=$(dirname "$(realpath "$BASH_SOURCE")")
 source "$DIR/.common"
 cd "$DIR/.."
 
-ADMIN="admin"
-ADMIN_DEV="admin-dev"
-INSTALL="install"
-LOCK="install.lock"
-
-usage() {
-    echo "Arrête les containers."
-    echo
-    echo "Usage: $0"
-}
-
-while [ $# -gt 0 ] && [ "$ARGS" == "" ]; do
-    case $1 in
-        -h|--help)
-            usage
-            exit
-            ;;
-        *)
-            ARGS="$@"
-            ;;
-    esac
-    shift
-done
-
-# Some clenup may be necessary
-# if [ -e $ADMIN_DEV -a -d $ADMIN_DEV ]
-#     then
-#         cmd rm -Rf $ADMIN_DEV
-# fi
-
-if [ -e $ADMIN -a -d $ADMIN ]
-    then
-        cmd rm -Rf $ADMIN
-fi
-
-if [ -e $LOCK -a -f $LOCK ]
-    then
-        cmd rm $LOCK
-fi
-
+cmd bin/clear-cache
 cmd docker-compose down
+

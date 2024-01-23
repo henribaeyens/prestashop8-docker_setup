@@ -154,6 +154,7 @@ mails/
 !/bin/bash
 !/bin/build
 !/bin/clean
+!/bin/clear-cache
 !/bin/first-install
 !/bin/restart
 !/bin/start
@@ -315,6 +316,7 @@ tools/build/releases/*
 /app/
 /src
 /img/
+/install/
 /download/
 /tools/
 /translations/

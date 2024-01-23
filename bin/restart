@@ -5,24 +5,5 @@ DIR=$(dirname "$(realpath "$BASH_SOURCE")")
 source "$DIR/.common"
 cd "$DIR/.."
 
-usage() {
-    echo "Redémarre les containers."
-    echo
-    echo "Usage: $0"
-}
-
-while [ $# -gt 0 ] && [ "$ARGS" == "" ]; do
-    case $1 in
-        -h|--help)
-            usage
-            exit
-            ;;
-        *)
-            ARGS="$@"
-            ;;
-    esac
-    shift
-done
-
 bin/stop
 bin/start

@@ -39,7 +39,7 @@ services:
                 - GID=${GID}
         environment:
             - DISABLE_MAKE=1
-            - PS_DOMAIN=`${PROJECT_NAME}.${BASE_DOMAIN}`
+            - PS_DOMAIN=${PROJECT_NAME}.${BASE_DOMAIN}
             - PS_HANDLE_DYNAMIC_DOMAIN=0
             - DB_SERVER=srvc_mariadb
             - DB_PORT=${DATABASE_PORT}
@@ -51,7 +51,7 @@ services:
             - PS_INSTALL_AUTO=0
             - PS_ERASE_DB=0
             - PS_INSTALL_DB=0
-            - PS_ENABLE_SSL=0
+            - PS_ENABLE_SSL=1
             - PS_FOLDER_ADMIN=admin-dev
             - PS_FOLDER_INSTALL=install
             - PS_DEV_MODE=1

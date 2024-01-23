@@ -5,25 +5,36 @@ DIR=$(dirname "$(realpath "$BASH_SOURCE")")
 source "$DIR/.common"
 cd "$DIR/.."
 
-usage() {
-    echo "Nettoyage de l'environnement de dev"
-    echo
-    echo "Usage: $0 [options]"
-}
+ADMIN="admin"
+ADMIN_DEV="admin-dev"
+INSTALL="install"
+LOCK="install.lock"
+SETTINGS="config/settings.inc.php"
 
-while [ $# -gt 0 ]; do
-    case $1 in
-        -h|--help)
-            usage
-            exit
-            ;;
-        *)
-            error "Option $1 inconnue"
-            exit
-            ;;
-    esac
-    shift
-done
+if [ -e $ADMIN_DEV -a -d $ADMIN_DEV ]
+    then
+        cmd rm -Rf $ADMIN_DEV
+fi
+
+if [ -e $ADMIN -a -d $ADMIN ]
+    then
+        cmd rm -Rf $ADMIN
+fi
+
+if [ -e $SETTINGS -a -f $SETTINGS ]
+    then
+        cmd rm $SETTINGS
+fi
+
+if [ -e $INSTALL -a -d $INSTALL ]
+    then
+        cmd rm -Rf $INSTALL
+fi
+
+if [ -e $LOCK -a -f $LOCK ]
+    then
+        cmd rm $LOCK
+fi
 
 cmd docker-compose -f docker-compose.yml -f docker-compose.build.yml stop
 cmd docker-compose -f docker-compose.yml -f docker-compose.build.yml rm -v -f

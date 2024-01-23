@@ -5,39 +5,4 @@ DIR=$(dirname "$(realpath "$BASH_SOURCE")")
 source "$DIR/.common"
 cd "$DIR/.."
 
-usage() {
-    echo "Démarre les containers."
-    echo
-    echo "Usage: $0"
-}
-
-INSTALL="install"
-LOCK="install.lock"
-
-while [ $# -gt 0 ] && [ "$ARGS" == "" ]; do
-    case $1 in
-        -h|--help)
-            usage
-            exit
-            ;;
-        *)
-            ARGS="$@"
-            ;;
-    esac
-    shift
-done
-
 cmd docker-compose up -d
-
-# Some clenup may be necessary
-# if [ -e $INSTALL -a -d $INSTALL ]
-#     then
-#         cmd rm -Rf $INSTALL
-# fi
-# the prestashop script removes the lock file. Removing it here might cause an error starting the php container
-# if [ -e $LOCK -a -f $LOCK ]
-#     then
-#         cmd rm $LOCK
-# fi
-
-cmd bin/prestashop-init

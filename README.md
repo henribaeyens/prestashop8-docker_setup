@@ -45,9 +45,41 @@ bin/build
 
 # First install
 
-The auto-install feature is disabled because it is not fully realiable. Run the following instead:
+The auto-install feature is disabled because it is not fully realiable. Do the following instead:  
+Connect to the php container:
 ```
 bin/bash
+```
+And run
+```
 bin/first-install
 ```
+Before that, though, check the php container logs. Launch the script only if you see the following message:
+
+> Reapplying PrestaShop files for enabled volumes ...  
+> No pre-install script found, let's continue...  
+> Almost ! Starting web server now  
+> No init script found, let's continue...
+
+Make sure the following folders exist:
+- admin-dev
+- install
+
+
+# Reinstalling your shop
+
+If you want to re-install your shop, run those
+
+```
+bin/stop
+bin/clean
+bin/build
+bin/bash
+```
+
+Check that everything is ready (see **First install**) before launching the install script.
+```
+bin/first-install
+```
+
 
