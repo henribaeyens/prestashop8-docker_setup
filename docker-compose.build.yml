@@ -1,0 +1,13 @@
+version: '3.7'
+
+networks:
+    back:
+        driver: bridge
+    reverse-proxy:
+        external: true
+
+services:
+    php:
+        container_name: srvc_php
+        build:
+            context: ./docker/php
