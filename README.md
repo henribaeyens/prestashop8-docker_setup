@@ -43,28 +43,23 @@ Build the project using the following:
 bin/build
 ```
 
-# First install
-
-The auto-install feature is disabled because it is not fully realiable. Do the following instead:  
-Connect to the php container:
+Check the php container logs. A successfull install should have produced the following output:
 ```
-bin/bash
+Checking if srvc_mariadb is available...
+DB server srvc_mariadb is available, let's continue !
+Setting up install lock file...
+Reapplying PrestaShop files for enabled volumes ...
+No pre-install script found, let's continue...
+Renaming admin folder as admin-dev ...
+Installing PrestaShop, this may take a while ...
+Launching the installer script...
+-- Installation successful! --
+Removing install folder...
+No post-install script found, let's continue...
+Setup completed, removing lock file...
+Almost ! Starting web server now
+No init script found, let's continue...
 ```
-And run
-```
-bin/first-install
-```
-Before that, though, check the php container logs. Launch the script only if you see the following message:
-
-> Reapplying PrestaShop files for enabled volumes ...  
-> No pre-install script found, let's continue...  
-> Almost ! Starting web server now  
-> No init script found, let's continue...
-
-Make sure the following folders exist:
-- admin-dev
-- install
-
 
 # Reinstalling your shop
 
@@ -74,12 +69,6 @@ If you want to re-install your shop, run those
 bin/stop
 bin/clean
 bin/build
-bin/bash
-```
-
-Check that everything is ready (see **First install**) before launching the install script.
-```
-bin/first-install
 ```
 
 

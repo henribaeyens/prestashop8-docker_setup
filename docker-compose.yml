@@ -35,8 +35,6 @@ services:
                 - IMAGE=${PRESTASHOP_IMAGE}
                 - DATABASE_DRIVER=${DATABASE_DRIVER}
                 - NODE_VERSION=${NODE_VERSION}
-                - UID=${UID}
-                - GID=${GID}
         environment:
             - DISABLE_MAKE=1
             - PS_DOMAIN=${PROJECT_NAME}.${BASE_DOMAIN}
@@ -48,7 +46,7 @@ services:
             - DB_USER=${DATABASE_USER}
             - DB_PASSWD=${DATABASE_PASSWORD}
             - ALLOW_EMPTY_PASSWORD=no
-            - PS_INSTALL_AUTO=0
+            - PS_INSTALL_AUTO=1
             - PS_ERASE_DB=0
             - PS_INSTALL_DB=0
             - PS_ENABLE_SSL=1

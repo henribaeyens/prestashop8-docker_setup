@@ -24,10 +24,3 @@ RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesourc
 RUN apt-get update \
  && apt-get install -y nodejs \
  && rm -rf /var/lib/apt/lists/*
-
-# Create developer user
-ARG UID
-ARG GID
-RUN groupadd -g ${GID} developer \
- && useradd -g ${GID} -u ${UID} -m developer
-USER developer
