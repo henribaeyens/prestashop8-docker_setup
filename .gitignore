@@ -333,7 +333,7 @@ tools/build/releases/*
 /.scrutinizer.yml
 /.t9n.yml
 /INSTALL.txt
-/LICENCES
+/LICENSES
 /autoload.php
 /error500.html
 /images.inc.php
