@@ -80,6 +80,7 @@ npm-debug.log.*
 
 tests-legacy/*
 
+/admin-dev/*
 /admin-dev/autoupgrade/*
 !/admin-dev/autoupgrade/index.php
 !/admin-dev/autoupgrade/backup/index.php
@@ -138,10 +139,8 @@ php-cs-fixer
 
 # Translations and emails templates
 
-translations/*
-mails/*
-!mails/en/
-!mails/themes/
+translations/
+mails/
 
 # MISC
 
@@ -159,6 +158,7 @@ mails/*
 !/bin/restart
 !/bin/start
 !/bin/stop
+
 /.web-server-pid
 /app/Resources/geoip/GeoLite2-City.mmdb
 /app/Resources/translations/*
@@ -312,14 +312,12 @@ tools/build/releases/*
 !/config/defines_custom.inc.php
 /config/themes/
 /controllers/
-/admin-dev/
 /app/
 /src
 /img/
 /download/
 /tools/
 /translations/
-/travis-scripts/
 /upload/
 /var/
 /webservice/
@@ -334,18 +332,14 @@ tools/build/releases/*
 /.php_cs.dist
 /.scrutinizer.yml
 /.t9n.yml
-/.travis.yml
-/CONTRIBUTING.md
-/CONTRIBUTORS.md
 /INSTALL.txt
 /LICENCES
 /autoload.php
-/diff-hooks.php
 /error500.html
 /images.inc.php
 /index.php
 /init.php
-/mails/
+
 #/package-lock.json
 #/composer.json
 #/package.json
