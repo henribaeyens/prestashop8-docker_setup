@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -e
+DIR=$(dirname "$0")
+source "$DIR/.common"
+cd "$DIR/.."
+
+usage() {
+    echo "Construction de l'environnement de developpement"
+    echo
+    echo "Usage: $0 [options]"
+    echo "Options:"
+    echo "  --no-start          Ne pas démarrer les services après le setup."
+    echo "  -h|--help           Afficher cette aide."
+}
+
+START=1
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        --no-start)
+            START=0
+            ;;
+        -h|--help)
+            usage
+            exit
+            ;;
+        *)
+            error "Unknown option $1"
+            exit
+            ;;
+    esac
+    shift
+done
+
+# Generate local .env file
+if [ ! -f .env ]; then
+  sed "s/UID=.*/UID=$(id -u)/g" .env.dist | \
+    sed "s/GID=.*/GID=$(id -g)/g" \
+  > .env
+fi
+
+# Install project
+cmd docker-compose -f docker-compose.yml build
+
+# Start it up
+if [ $START -eq 1 ]
+    then
+        bin/start
+else
+    success Done
+fi

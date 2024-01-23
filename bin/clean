@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e
+DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+source "$DIR/.common"
+cd "$DIR/.."
+
+usage() {
+    echo "Nettoyage de l'environnement de dev"
+    echo
+    echo "Usage: $0 [options]"
+}
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        -h|--help)
+            usage
+            exit
+            ;;
+        *)
+            error "Option $1 inconnue"
+            exit
+            ;;
+    esac
+    shift
+done
+
+cmd docker-compose -f docker-compose.yml -f docker-compose.build.yml stop
+cmd docker-compose -f docker-compose.yml -f docker-compose.build.yml rm -v -f
+cmd docker volume rm vol-prestashop-data

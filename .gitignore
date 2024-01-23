@@ -150,7 +150,7 @@ mails/*
 
 # Symfony
 
-/bin/
+/bin/*
 !/bin/.common
 !/bin/bash
 !/bin/build
