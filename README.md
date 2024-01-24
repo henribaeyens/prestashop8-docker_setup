@@ -18,8 +18,8 @@ Refer to the README for more info on how to use this kit.
 ## srvc_php
 Loads up an php-fpm image with version 8.1 of PHP and version 8.0.4 of Prestashop
 ## srvc_nginx
-Loads up an nginx image to serve the api  
-The api's base url is https://prestashop.docker.localhost
+Loads up an nginx image to serve the shop  
+The shop's base url is https://prestashop.docker.localhost
 ## srvc_mariadb
 Loads up mariadb
 ## srvc_pma
