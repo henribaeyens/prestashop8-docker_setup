@@ -4,7 +4,7 @@ Docker development setup for Prestashop 8.
 
 # Prerequisite
 
-You'll need to clone and setup the development-kit package to set up your development environnement.
+You'll need to clone the development-kit package to set up your development environnement.
 
 ```
 git clone https://github.com/neimheadh/development-kit.git
@@ -60,7 +60,9 @@ Setup completed, removing lock file...
 Almost ! Starting web server now
 No init script found, let's continue...
 ```
-  
+
+**N.B. The whole process might take some time; wait for it to complete.**  
+
 # Reinstalling your shop
 
 If you want to re-install your shop, run those
