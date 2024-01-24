@@ -60,7 +60,7 @@ Setup completed, removing lock file...
 Almost ! Starting web server now
 No init script found, let's continue...
 ```
-
+  
 # Reinstalling your shop
 
 If you want to re-install your shop, run those
@@ -70,6 +70,15 @@ bin/stop
 bin/clean
 bin/build
 ```
+
+# Back-office
+
+Accessible at https://prestashop.docker.localhost/admin-dev  
+
+>Email: admin@docker.local  
+>Password: ShopAdmin!  
+
+These credentials are set at build time. They can be changed by editing the docker-compose file.  
 
 # Email configuration
 
