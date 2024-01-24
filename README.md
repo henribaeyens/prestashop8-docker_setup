@@ -71,4 +71,16 @@ bin/clean
 bin/build
 ```
 
+# Email configuration
+
+Log into the back-office and head to  **Advanced parameters** > **Email**
+
+Check the SMTP radio and enter the following information:
+
+>SMTP server: srvc_mail  
+>Encryption: none  
+>Port: 25
+
+Save and send a test email.  
+Verify that it has properly been sent by going to https://mail.prestashop.docker.localhost
 
