@@ -36,6 +36,7 @@ if [ -e $LOCK -a -f $LOCK ]
         cmd rm $LOCK
 fi
 
-cmd docker-compose -f docker-compose.yml -f docker-compose.build.yml stop
-cmd docker-compose -f docker-compose.yml -f docker-compose.build.yml rm -v -f
-cmd docker volume rm vol-prestashop-data
+cmd docker compose -f docker-compose.yml stop
+cmd docker compose -f docker-compose.yml rm -v -f
+cmd docker volume rm prestashop-database-data
+cmd docker volume rm prestashop-mailpit-data

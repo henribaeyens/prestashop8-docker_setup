@@ -155,6 +155,7 @@ mails/
 !/bin/build
 !/bin/clean
 !/bin/clear-cache
+!/bin/load-db
 !/bin/restart
 !/bin/start
 !/bin/stop

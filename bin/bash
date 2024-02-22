@@ -46,7 +46,7 @@ while [ $# -gt 0 ] && [ "$ARGS" == "" ]; do
 done
 
 if [ "$ARGS" == "" ]; then
-    cmd docker-compose $DOCKER_ARGS ${SERVICE} $BASH
+    cmd docker compose $DOCKER_ARGS ${SERVICE} $BASH
 else
-    cmd docker-compose $DOCKER_ARGS ${SERVICE} $ARGS
+    cmd docker compose $DOCKER_ARGS ${SERVICE} $ARGS
 fi

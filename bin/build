@@ -40,7 +40,7 @@ if [ ! -f .env ]; then
   > .env
 fi
 
-cmd docker-compose -f docker-compose.yml build
+cmd docker compose -f docker-compose.yml build
 
 if [ $START -eq 1 ]
     then

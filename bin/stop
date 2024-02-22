@@ -6,5 +6,5 @@ source "$DIR/.common"
 cd "$DIR/.."
 
 cmd bin/clear-cache
-cmd docker-compose down
+cmd docker compose down
 

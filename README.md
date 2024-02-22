@@ -26,7 +26,7 @@ Loads up mariadb
 Loads up phpmyadmin  
 Accessible on https://pma.prestashop.docker.localhost
 ## srvc_mail
-Loads up maildev  
+Loads up mailpit  
 Accessible on https://mail.prestashop.docker.localhost
 
 
@@ -65,7 +65,7 @@ No init script found, let's continue...
 
 # Reinstalling your shop
 
-If you want to re-install your shop, run those
+If you want to re-install your shop, run those:
 
 ```
 bin/stop
@@ -90,8 +90,14 @@ Check the SMTP radio and enter the following information:
 
 >SMTP server: srvc_mail  
 >Encryption: none  
->Port: 25
+>Port: 1025
 
 Save and send a test email.  
 Verify that it has properly been sent by going to https://mail.prestashop.docker.localhost
+
+# Load up a database dump (or any .sql file)
+
+```
+bin/load-db -f your_dump.sql
+```
 
