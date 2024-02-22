@@ -22,10 +22,10 @@ services:
             # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
             # - ./docker/db/data:/var/lib/mysql/data:rw
         healthcheck:
-          test: ["CMD-SHELL", "exit | mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD}" ]
-          interval: 6s
-          timeout: 4s
-          retries: 5
+            test: [ "CMD", "healthcheck.sh", "--su-mysql", "--connect", "--innodb_initialized" ]
+            interval: 5s
+            timeout: 8s
+            retries: 4
 
     srvc_php:
         container_name: ${PROJECT_NAME}_php
@@ -105,8 +105,8 @@ services:
 
     srvc_mail:
         container_name: ${PROJECT_NAME}_mail
-        image: djfarrelly/maildev
-        command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+        image: axllent/mailpit:latest
+        restart: unless-stopped
         networks:
             - back
             - reverse-proxy
@@ -115,9 +115,13 @@ services:
             - traefik.docker.network=reverse-proxy
             - traefik.http.routers.${PROJECT_NAME}_mail.rule=Host(`mail.${PROJECT_NAME}.${BASE_DOMAIN}`)
             - traefik.http.routers.${PROJECT_NAME}_mail.middlewares=redirecthttps@file
-            - traefik.http.services.${PROJECT_NAME}_mail.loadbalancer.server.port=80
+            - traefik.http.services.${PROJECT_NAME}_mail.loadbalancer.server.port=8025
+        volumes:
+            - mailpit_data:/data
 
 volumes:
     database_data:
-        name: vol-prestashop-data
+        name: prestashop-database-data
+    mailpit_data:
+        name: prestashop-mailpit-data
 

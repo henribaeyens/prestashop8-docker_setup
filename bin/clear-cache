@@ -1,5 +1,8 @@
 #!/bin/sh
 
-echo "Cleaning up cache..."
+set -e
+DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+source "$DIR/.common"
+cd "$DIR/.."
 
-rm -Rf var/cache/*    
+cmd rm -Rf var/cache/*    

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e
+DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+source "$DIR/.common"
+cd "$DIR/.."
+
+usage() {
+    echo "Inject an sql dump into the database."
+    echo
+    echo "Usage: $0 [options] <command>"
+    echo "Options:"
+    echo "  --file|-f     The file to copy."
+    echo "  --help|-h     Show this help."
+}
+
+load_env
+
+INSTANCE=_mariadb
+SRVC=srvc
+DUMP_FILE="dump.sql"
+SQL="mysql -u$DATABASE_USER -p$DATABASE_PASSWORD -D$DATABASE_NAME < /var/tmp/$DUMP_FILE"
+FILE=""
+
+while [ $# -gt 0 ] && [ "$ARGS" == "" ]; do
+    case $1 in
+        -f|--file)
+            shift
+            FILE="$1"
+            ;;
+        -h|--help)
+            usage
+            exit
+            ;;
+    esac
+    shift
+done
+
+if [ "$FILE" == "" ]; then
+    usage
+else
+    if [ -e $FILE -a -f $FILE ]; then
+        cmd docker cp $FILE $PROJECT_NAME$INSTANCE:/var/tmp/$DUMP_FILE
+        cmd docker compose exec -T $SRVC$INSTANCE mysql -u$DATABASE_USER -p$DATABASE_PASSWORD -D$DATABASE_NAME < $FILE
+    else
+        echo "File '$FILE' not found."
+    fi
+fi
+
+
