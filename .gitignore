@@ -108,8 +108,6 @@ tests-legacy/*
 /admin-dev/themes/new-theme/css/module/drop_rtl.css
 /admin-dev/themes/new-theme/css/right-sidebar_rtl.css
 
-themes/*/cache/*
-
 # Config
 
 app/config/settings.inc.php
@@ -121,9 +119,11 @@ app/config/themes/*
 app/config/parameters.old.yml
 app/config/config.php
 
+
 # Themes
 
 themes/*
+themes/*/cache/*
 
 # Modules
 
@@ -318,6 +318,7 @@ tools/build/releases/*
 /img/
 /install/
 /download/
+templates/
 /tools/
 /translations/
 /upload/
@@ -351,3 +352,4 @@ tools/build/releases/*
 /.vscode/
 
 phpstan.neon.dist
+.php-cs-fixer.dist.php

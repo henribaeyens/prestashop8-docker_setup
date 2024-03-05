@@ -121,7 +121,7 @@ services:
 
 volumes:
     database_data:
-        name: prestashop-database-data
+        name: prestashop8-database-data
     mailpit_data:
-        name: prestashop-mailpit-data
+        name: prestashop8-mailpit-data
 

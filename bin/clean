@@ -38,5 +38,5 @@ fi
 
 cmd docker compose -f docker-compose.yml stop
 cmd docker compose -f docker-compose.yml rm -v -f
-cmd docker volume rm prestashop-database-data
-cmd docker volume rm prestashop-mailpit-data
+cmd docker volume rm prestashop8-database-data
+cmd docker volume rm prestashop8-mailpit-data
