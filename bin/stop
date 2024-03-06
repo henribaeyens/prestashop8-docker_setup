@@ -5,6 +5,6 @@ DIR=$(dirname "$(realpath "$BASH_SOURCE")")
 source "$DIR/.common"
 cd "$DIR/.."
 
-cmd bin/clear-cache
-cmd docker compose down
+cmd bin/clear-var
+cmd docker compose down --remove-orphans
 
