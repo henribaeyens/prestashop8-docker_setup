@@ -154,7 +154,7 @@ mails/
 !/bin/bash
 !/bin/build
 !/bin/clean
-!/bin/clear-cache
+!/bin/clear-var
 !/bin/load-db
 !/bin/restart
 !/bin/start
@@ -353,3 +353,5 @@ templates/
 
 phpstan.neon.dist
 .php-cs-fixer.dist.php
+
+*.sql

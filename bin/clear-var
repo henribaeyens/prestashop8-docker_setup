@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 DIR=$(dirname "$(realpath "$BASH_SOURCE")")
 source "$DIR/.common"
 cd "$DIR/.."
 
-cmd rm -Rf var/cache/*    
+cmd rm -Rf var/cache/*
+cmd rm -Rf var/logs/*
