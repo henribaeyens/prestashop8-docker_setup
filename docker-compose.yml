@@ -52,7 +52,7 @@ services:
             - PS_ENABLE_SSL=1
             - PS_FOLDER_ADMIN=admin-dev
             - PS_FOLDER_INSTALL=install
-            - PS_DEV_MODE=1
+            - PS_DEV_MODE=0
             - PS_LANGUAGE=fr
             - PS_COUNTRY=FR
             - ADMIN_MAIL=admin@docker.local
